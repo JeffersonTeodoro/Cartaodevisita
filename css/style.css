@@ -1,152 +1,105 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
-:root {
-  --primary: #5de6de;
-  --accent: #87a8f0;
-  --bg: #0f2027;
-  --text: #ffffff;
-}
-
-* {
-  box-sizing: border-box;
+body {
   margin: 0;
   padding: 0;
-}
-
-body {
   font-family: 'Poppins', sans-serif;
-  background: var(--bg);
-  color: var(--text);
+  color: white;
   height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   overflow: hidden;
-  position: relative;
 }
 
-/* Fundo */
+/* Imagem de fundo */
 .background-image {
   position: absolute;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background: url('https://cdn.pixabay.com/photo/2017/09/03/22/20/foot-care-2717430_1280.jpg'),
-              url('https://cdn.pixabay.com/photo/2020/06/29/09/43/feet-5353121_1280.jpg');
-  background-size: cover;
-  background-position: center;
-  filter: blur(5px) brightness(0.5);
+  background: url('../img/fundo1.jpg') center/cover no-repeat;
+  filter: blur(4px) brightness(0.6);
   z-index: -2;
-  animation: moveBg 25s linear infinite alternate;
+  animation: fundoMove 25s ease-in-out infinite alternate;
+}
+
+@keyframes fundoMove {
+  0% { background-position: top; }
+  100% { background-position: bottom; }
 }
 
 .overlay {
   position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(15, 32, 39, 0.6);
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
   z-index: -1;
-}
-
-@keyframes moveBg {
-  0% { background-position: center top; }
-  100% { background-position: center bottom; }
 }
 
 /* Cartão */
 .card {
   width: 380px;
-  padding: 25px;
+  background: rgba(255,255,255,0.1);
   border-radius: 20px;
-  backdrop-filter: blur(20px);
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 0 25px rgba(93,230,222,0.25);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(93,230,222,0.3);
+  padding: 20px;
   text-align: center;
-  transition: all 0.6s ease;
-  position: relative;
-  overflow: hidden;
+  transition: 0.4s;
 }
-
 .card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 0 30px rgba(135,168,240,0.3);
+  transform: scale(1.03);
+  box-shadow: 0 0 25px rgba(135,168,240,0.3);
 }
 
-.avatar {
+/* Avatar */
+.avatar img {
   width: 90px;
   height: 90px;
-  margin: 0 auto 10px;
   border-radius: 50%;
-  overflow: hidden;
-  border: 3px solid var(--primary);
-  animation: pulse 2.5s infinite;
+  border: 3px solid #5de6de;
+  box-shadow: 0 0 15px rgba(93,230,222,0.5);
+  margin-bottom: 10px;
 }
 
-.avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+h1 { color: #5de6de; font-size: 20px; margin-bottom: 5px; }
+.title { color: #87a8f0; font-size: 14px; margin-bottom: 10px; }
 
-@keyframes pulse {
-  0%, 100% { box-shadow: 0 0 15px rgba(93,230,222,0.4); }
-  50% { box-shadow: 0 0 30px rgba(135,168,240,0.6); }
-}
-
-h1 {
-  font-size: 22px;
-  font-weight: 600;
-  color: var(--primary);
-}
-
-.title {
-  font-size: 14px;
-  color: var(--accent);
-  margin-bottom: 15px;
-}
-
-.info p {
-  font-size: 13px;
-  color: #e0e0e0;
-  margin-bottom: 20px;
-}
+.info p { color: #e0e0e0; font-size: 13px; margin-bottom: 15px; }
 
 /* Especialidades */
 .specialties {
   text-align: left;
-  margin: 20px 0;
-  padding: 10px;
-  background: rgba(255,255,255,0.05);
+  margin: 10px auto;
+  background: rgba(255,255,255,0.08);
+  padding: 10px 15px;
   border-radius: 12px;
-  box-shadow: 0 0 10px rgba(255,255,255,0.05);
 }
-
 .specialties h3 {
-  color: var(--primary);
-  font-size: 16px;
-  margin-bottom: 10px;
   text-align: center;
+  color: #5de6de;
+  font-size: 15px;
+  margin-bottom: 8px;
 }
-
 .specialties ul {
   list-style: none;
-  padding-left: 10px;
-}
-
-.specialties li {
-  color: #d0d0d0;
+  padding: 0;
   font-size: 13px;
-  margin: 5px 0;
-  transition: transform 0.3s;
+  color: #ccc;
+}
+.specialties li { margin-bottom: 6px; }
+
+/* Endereço */
+.address h3 {
+  color: #5de6de;
+  font-size: 14px;
+}
+.address p {
+  font-size: 13px;
+  color: #ccc;
+  margin-bottom: 15px;
 }
 
-.specialties li:hover {
-  color: #fff;
-  transform: translateX(6px);
-}
-
+/* Botões */
 .contact {
   display: flex;
   justify-content: center;
@@ -155,28 +108,19 @@ h1 {
 
 .btn {
   text-decoration: none;
-  padding: 10px 15px;
+  padding: 8px 15px;
   border-radius: 30px;
   color: white;
   font-weight: 500;
-  transition: 0.4s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 14px;
-  position: relative;
+  transition: 0.4s;
 }
-
 .whatsapp {
   background: #25D366;
 }
 .instagram {
   background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7);
 }
-
 .btn:hover {
   transform: scale(1.1);
-  box-shadow: 0 0 15px rgba(255,255,255,0.4);
+  box-shadow: 0 0 10px white;
 }
-
-
