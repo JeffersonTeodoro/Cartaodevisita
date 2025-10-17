@@ -124,3 +124,32 @@ h1 { color: #5de6de; font-size: 20px; margin-bottom: 5px; }
   transform: scale(1.1);
   box-shadow: 0 0 10px white;
 }
+/* 🌐 Responsividade para celular */
+@media (max-width: 600px) {
+  .card {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .avatar img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .title {
+    font-size: 0.9rem;
+  }
+
+  .specialties ul li {
+    font-size: 0.85rem;
+  }
+
+  .btn {
+    padding: 8px 14px;
+    font-size: 0.9rem;
+  }
+
+  .qrcode img {
+    width: 100px;
+  }
+}
