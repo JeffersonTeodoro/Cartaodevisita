@@ -1,9 +1,7 @@
 const phone = "5521975039334";
 const insta = "https://www.instagram.com/millenaanogueiira/";
 
-document.getElementById("whatsapp").href = 
-  `https://wa.me/${phone}?text=Olá%20Millena!%20Gostaria%20de%20agendar%20um%20atendimento%20de%20podologia%20😊`;
-
+document.getElementById('whatsapp').href = 'https://wa.me/5521975039334?text=Olá%20Millena!%20Gostaria%20de%20agendar%20um%20atendimento%20podológico%20🦶🏼';
 document.getElementById("instagram").href = insta;
 
 // Efeito leve de movimento do cartão

@@ -152,4 +152,23 @@ h1 { color: #5de6de; font-size: 20px; margin-bottom: 5px; }
   .qrcode img {
     width: 100px;
   }
+/* 📱 Ajustes extras para iOS */
+@supports (-webkit-touch-callout: none) {
+  body {
+    -webkit-text-size-adjust: 100%;
+    background-attachment: scroll; /* Corrige bug de fundo fixo no Safari iOS */
+  }
+
+  .background-image {
+    background-attachment: scroll;
+  }
+
+  .card {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); /* Suporte para Safari */
+  }
+}
+
+
+
 }
